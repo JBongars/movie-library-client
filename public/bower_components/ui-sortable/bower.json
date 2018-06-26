@@ -1,0 +1,16 @@
+{
+  "name": "ui-sortable",
+  "version": "1.0.0",
+  "homepage": "https://github.com/sudiptpa/ui-sortable",
+  "authors": [
+    "Sujip <sudiptpa@gmail.com>"
+  ],
+  "description": "This package only contains only jquery-ui sortable component",
+  "main": "./dist/ui-sortable.js",
+  "keywords": [
+    "jquery",
+    "jquery-ui",
+    "sortable"
+  ],
+  "license": "MIT"
+}
