@@ -1,0 +1,133 @@
+<br>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <h1>List of Movies</h1>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" ng-model="vm.filter.title" ng-model-options="{debounce:500}" placeholder="Search..">
+                <div class="input-group-append">
+                    <button class="btn btn-primary" type="button">Search</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <a href="javascript:void(0)" ng-click="vm.changeState('search');" data-toggle="modal" data-target="#itemModal">Advanced Search</a>
+        </div>
+        <div class="col-lg-6">
+            <button class="btn btn-success pull-right" ng-click="vm.updateAll()">Save All <span class="fa fa-save"></span></button>
+        </div>
+    </div>
+    <div class="row" ui-sortable="vm.imageSortableOptions" ng-model="vm.item">
+        <div class="col-sm-3 card-wrapper" ng-repeat="movie in vm.item | filter:vm.filter.title">
+            <div class="card">
+                <div class="card-header">
+                    <strong>
+                        {{movie.title}}
+                    </strong>
+                </div>
+                <div class="card-avatar">
+                    <img src="assets/jumbo.jpg" width="100%" />
+                </div>
+                <div class="card-body">
+                    {{movie.director}}
+                    <br> {{movie.releaseDate}}
+                    <br> {{movie.type}}
+                </div>
+                <div class="card-footer">
+                    <button ng-click="vm.loadUpdate(movie, $index)" data-toggle="modal" data-target="#itemModal" class="btn btn-primary">Edit
+                        <span class="far fa-edit"></span>
+                    </button>
+                    <button class="btn btn-danger" ng-click="vm.deleteItem($index)">Delete
+                        <span class="fas fa-trash"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3 card-wrapper">
+            <div class="card">
+                <div class="card-header">
+                    <strong>
+                        &nbsp;
+                    </strong>
+                </div>
+                <div class="card-avatar">
+                    <img src="assets/jumbo.jpg" width="100%" />
+                </div>
+                <div class="card-body">
+                    <br>Add New Card
+                    <br>
+                    <br>
+                </div>
+                <div class="card-footer">
+                    <button class="btn btn-primary" ng-click="vm.changeState('create')" data-toggle="modal" data-target="#itemModal">Add
+                        <span class="far fa-edit"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Advanced Search Modal -->
+<div class="modal" id="itemModal">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content modal-lg">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 ng-if="vm.state == 'search'" class="modal-title">Advanced Search</h4>
+                <h4 ng-if="vm.state == 'create'" class="modal-title">Create New Movie</h4>
+                <h4 ng-if="vm.state == 'update'" class="modal-title">Update Movie</h4>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+                <div id="searchModalForm col-lg-12">
+                    <div class="form-group col-lg-6">
+                        <label for="usr">Title:</label>
+                        <input type="text" class="form-control" ng-change="vm.getImbdMovies();" ng-model="vm.fields.title" id="usr">
+                    </div>
+                    <div class="form-group col-lg-6">
+                        <label for="usr">Directed By:</label>
+                        <input type="text" class="form-control" ng-model="vm.fields.director" id="usr">
+                    </div>
+                    <div class="form-group col-lg-6">
+                        <label for="usr">Release Date:</label>
+                        <input type="text" class="form-control" ng-model="vm.fields.releaseDate" id="usr">
+                    </div>
+                    <div class="form-group col-lg-6">
+                        <label for="usr">Type:</label>
+                        <select class="form-control" id="sel1" ng-model="vm.fields.type">
+                            <option ng-repeat="value in vm.types" ng-value="value">{{value}}</option>
+                        </select>
+                    </div>
+                </div>
+                <div id="imbd" ng-if="vm.showImbd">
+                    <br>
+                    <hr>
+                    <h4>Recommended - {{vm.imbdMovies.Title}} ({{vm.imbdMovies.Ratings[0].Value}})</h4>
+                    <hr>
+                    <p>Genre: {{vm.imbdMovies.Genre}}</p>
+                    <p>Released: {{vm.imbdMovies.Released}}</p>
+                    <p>Actors: {{vm.imbdMovies.Actors}}</p>
+                    <hr>
+                    <p>{{vm.imbdMovies.Plot}}</p>
+                    <button class="btn btn-primary" ng-click="vm.addRecommendedMovie(vm.imbdMovies)">Add</button>
+                    <br>
+                </div>
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="vm.submitForm()">Save</button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+            </div>
+
+        </div>
+    </div>
+</div>

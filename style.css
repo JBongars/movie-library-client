@@ -1,0 +1,41 @@
+h1 {
+    text-align: center;
+}
+
+body {
+    min-height: 100vh;
+    background: linear-gradient(#d1a8ff, #7381ff); 
+}
+
+.body-background {
+    min-height: 100vh;
+}
+
+.welcome-jumbo {
+    margin-top: 20vh;
+}
+
+.card-wrapper {
+    margin: 20px 0;
+    text-align: center;
+}
+
+.card-header {
+    height: 80px;
+}
+
+.card-footer {
+    text-align: center;
+}
+
+.card-footer>button {
+    display: inline-block;
+}
+
+.page-footer {
+    background: white;
+}
+
+.pull-right{
+    float: right;
+}

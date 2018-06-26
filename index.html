@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" data-ng-app="myApp">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title data-ng-bind="'Japan Curator Dashboard | ' + $state.current.data.pageTitle"></title>
+
+    <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="bower_components/fontawesome/svg-with-js/css/fa-svg-with-js.min.css" rel="stylesheet" type="text/css" />
+    <link href="bower_components/angular-toastr/dist/angular-toastr.min.css" rel="stylesheet" type="text/css" />
+    <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+    <div class="body-background" ng-view></div>
+    <br>
+    <br>
+    <!-- Footer -->
+    <footer class="page-footer font-small mt-4">
+        <div class="footer-copyright text-center py-3">© 2018 Copyright:
+            <a href="javascript:void(0)"> Julien Bongars</a>
+        </div>
+    </footer>
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="js/plugins.min.js"></script>
+    <!-- <script src="bower_components/angular-ui/modules/directives/sortable/sortable.js"></script> -->
+    <script src="bower_components/angular-route/angular-route.min.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="bower_components/fontawesome/svg-with-js/js/fontawesome-all.min.js"></script>
+    <script src="bower_components/angular-toastr/dist/angular-toastr.tpls.min.js"></script>
+
+    <script src="js/main.js"></script>
+    <script src="js/controllers.js"></script>
+    <script src="js/routes.js"></script>
+</body>
+
+</html>
