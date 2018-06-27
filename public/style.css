@@ -39,3 +39,10 @@ body {
 .pull-right{
     float: right;
 }
+
+.loading-screen {
+    width: 100vw;
+    text-align: center;
+    line-height: 100vh;
+    font-size: 100;
+}

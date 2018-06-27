@@ -22,6 +22,8 @@ myApp.controller('MoviesController', ['$scope', '$http', 'toastr', function($sco
     vm.filter = {};
     vm.item = [];
 
+    vm.loading = true;
+
     vm.listMovies = listMovies;
     vm.getImbdMovies = getImbdMovies;
     vm.loadUpdate = loadUpdate;
@@ -53,6 +55,7 @@ myApp.controller('MoviesController', ['$scope', '$http', 'toastr', function($sco
         vm.filter = {};
         console.log('getting movies..');
         $http.get(api + 'list').then(results => {
+            vm.loading = false;
             console.log('results are: ', results);
             vm.item = results.data;
         })

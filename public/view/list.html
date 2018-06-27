@@ -1,5 +1,13 @@
 <br>
-<div class="container">
+
+<div class="loading-screen" ng-if="vm.loading">
+    <span>
+        <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+        <b>Loading...</b>
+    </span>
+</div>
+
+<div class="container" ng-if="!vm.loading">
     <div class="row">
         <div class="col-sm-12">
             <h1>List of Movies</h1>
