@@ -13,7 +13,7 @@ myApp.controller('MoviesController', ['$scope', '$http', 'toastr', function($sco
     // Delete the Requested With Header
     delete $http.defaults.headers.common['X-Requested-With'];
 
-    const imbd = "http://omdbapi.com/";
+    const imbd = "https://omdbapi.com/";
     const api = "https://whispering-waters-61190.herokuapp.com/api/movies/";
 
     vm.types = ["Horror", "Romance", "Action", "Thriller", "Historical", "Family"];
